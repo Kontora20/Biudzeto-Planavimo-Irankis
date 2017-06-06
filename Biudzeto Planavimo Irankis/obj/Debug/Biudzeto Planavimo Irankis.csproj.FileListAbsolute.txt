@@ -1,0 +1,19 @@
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\Biudzeto Planavimo Irankis.exe.config
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\BiudzetoDatabase.mdf
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\BiudzetoDatabase_log.ldf
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\Biudzeto Planavimo Irankis.exe
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\Biudzeto Planavimo Irankis.pdb
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto Planavimo Irankis.csprojResolveAssemblyReference.cache
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto_Planavimo_Irankis.Form1.resources
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto_Planavimo_Irankis.Properties.Resources.resources
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto Planavimo Irankis.csproj.GenerateResource.Cache
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto Planavimo Irankis.exe
+c:\users\arnas\documents\visual studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto Planavimo Irankis.pdb
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\EntityFramework.dll
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\EntityFramework.xml
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto_Planavimo_Irankis.FormIslaidos.resources
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto_Planavimo_Irankis.IplaukuForma.resources
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto_Planavimo_Irankis.IslaidosUpdate.resources
+C:\Users\Arnas\Documents\Visual Studio 2015\Projects\Biudzeto Planavimo Irankis\Biudzeto Planavimo Irankis\obj\Debug\Biudzeto_Planavimo_Irankis.IplaukosUpdate.resources

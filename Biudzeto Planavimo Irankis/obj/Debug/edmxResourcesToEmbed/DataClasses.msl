@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BiudzetoDatabaseModelStoreContainer" CdmEntityContainer="BiudzetoDatabaseEntities">
+    <EntitySetMapping Name="Tranzakcijos">
+      <EntityTypeMapping TypeName="BiudzetoDatabaseModel.Tranzakcijos">
+        <MappingFragment StoreEntitySet="Tranzakcijos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Pavadinimas" ColumnName="Pavadinimas" />
+          <ScalarProperty Name="Menesis" ColumnName="Menesis" />
+          <ScalarProperty Name="Suma" ColumnName="Suma" />
+          <ScalarProperty Name="VartotojoID" ColumnName="VartotojoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vartotojai">
+      <EntityTypeMapping TypeName="BiudzetoDatabaseModel.Vartotojai">
+        <MappingFragment StoreEntitySet="Vartotojai">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Vardas" ColumnName="Vardas" />
+          <ScalarProperty Name="Pavarde" ColumnName="Pavarde" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Balansas">
+      <EntityTypeMapping TypeName="BiudzetoDatabaseModel.Balansas">
+        <MappingFragment StoreEntitySet="Balansas">
+          <ScalarProperty Name="VartotojoID" ColumnName="VartotojoID" />
+          <ScalarProperty Name="Menesis" ColumnName="Menesis" />
+          <ScalarProperty Name="Suma" ColumnName="Suma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Iplaukos">
+      <EntityTypeMapping TypeName="BiudzetoDatabaseModel.Iplaukos">
+        <MappingFragment StoreEntitySet="Iplaukos">
+          <ScalarProperty Name="VartotojoID" ColumnName="VartotojoID" />
+          <ScalarProperty Name="Menesis" ColumnName="Menesis" />
+          <ScalarProperty Name="Pavadinimas" ColumnName="Pavadinimas" />
+          <ScalarProperty Name="Suma" ColumnName="Suma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Islaidos">
+      <EntityTypeMapping TypeName="BiudzetoDatabaseModel.Islaidos">
+        <MappingFragment StoreEntitySet="Islaidos">
+          <ScalarProperty Name="VartotojoID" ColumnName="VartotojoID" />
+          <ScalarProperty Name="Menesis" ColumnName="Menesis" />
+          <ScalarProperty Name="Pavadinimas" ColumnName="Pavadinimas" />
+          <ScalarProperty Name="Suma" ColumnName="Suma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BiudzetoDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ARNAS\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\BIUDZETO PLANAVIMO IRANKIS\BIUDZETO PLANAVIMO IRANKIS\BIUDZETODATABASE.MDF.dbo.Balansas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Balansas">
+    <Key>
+      <PropertyRef Name="VartotojoID" />
+      <PropertyRef Name="Menesis" />
+      <PropertyRef Name="Suma" />
+    </Key>
+    <Property Name="VartotojoID" Type="int" Nullable="false" />
+    <Property Name="Menesis" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Suma" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ARNAS\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\BIUDZETO PLANAVIMO IRANKIS\BIUDZETO PLANAVIMO IRANKIS\BIUDZETODATABASE.MDF.dbo.Iplaukos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Iplaukos">
+    <Key>
+      <PropertyRef Name="VartotojoID" />
+      <PropertyRef Name="Menesis" />
+      <PropertyRef Name="Pavadinimas" />
+      <PropertyRef Name="Suma" />
+    </Key>
+    <Property Name="VartotojoID" Type="int" Nullable="false" />
+    <Property Name="Menesis" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Pavadinimas" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Suma" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ARNAS\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\BIUDZETO PLANAVIMO IRANKIS\BIUDZETO PLANAVIMO IRANKIS\BIUDZETODATABASE.MDF.dbo.Islaidos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Islaidos">
+    <Key>
+      <PropertyRef Name="VartotojoID" />
+      <PropertyRef Name="Menesis" />
+      <PropertyRef Name="Pavadinimas" />
+      <PropertyRef Name="Suma" />
+    </Key>
+    <Property Name="VartotojoID" Type="int" Nullable="false" />
+    <Property Name="Menesis" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Pavadinimas" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Suma" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tranzakcijos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Pavadinimas" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Menesis" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Suma" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="VartotojoID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vartotojai">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vardas" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Pavarde" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="BalansasFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Balansas" Type="Self.Balansas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Balansas">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IplaukosFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Iplaukos" Type="Self.Iplaukos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Iplaukos">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IslaidosFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Islaidos" Type="Self.Islaidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Islaidos">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TranzakcijosFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Tranzakcijos" Type="Self.Tranzakcijos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tranzakcijos">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BiudzetoDatabaseModelStoreContainer">
+    <EntitySet Name="Tranzakcijos" EntityType="Self.Tranzakcijos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vartotojai" EntityType="Self.Vartotojai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Balansas" EntityType="Self.Balansas" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Balansas].[VartotojoID] AS [VartotojoID], 
+    [Balansas].[Menesis] AS [Menesis], 
+    [Balansas].[Suma] AS [Suma]
+    FROM [dbo].[Balansas] AS [Balansas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Iplaukos" EntityType="Self.Iplaukos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Iplaukos].[VartotojoID] AS [VartotojoID], 
+    [Iplaukos].[Menesis] AS [Menesis], 
+    [Iplaukos].[Pavadinimas] AS [Pavadinimas], 
+    [Iplaukos].[Suma] AS [Suma]
+    FROM [dbo].[Iplaukos] AS [Iplaukos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Islaidos" EntityType="Self.Islaidos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Islaidos].[VartotojoID] AS [VartotojoID], 
+    [Islaidos].[Menesis] AS [Menesis], 
+    [Islaidos].[Pavadinimas] AS [Pavadinimas], 
+    [Islaidos].[Suma] AS [Suma]
+    FROM [dbo].[Islaidos] AS [Islaidos]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="BalansasFK" Association="Self.BalansasFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Balansas" EntitySet="Balansas" />
+    </AssociationSet>
+    <AssociationSet Name="IplaukosFK" Association="Self.IplaukosFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Iplaukos" EntitySet="Iplaukos" />
+    </AssociationSet>
+    <AssociationSet Name="IslaidosFK" Association="Self.IslaidosFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Islaidos" EntitySet="Islaidos" />
+    </AssociationSet>
+    <AssociationSet Name="TranzakcijosFK" Association="Self.TranzakcijosFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Tranzakcijos" EntitySet="Tranzakcijos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

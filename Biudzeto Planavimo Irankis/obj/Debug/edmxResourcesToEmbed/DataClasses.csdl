@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BiudzetoDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tranzakcijos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Pavadinimas" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Menesis" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Suma" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="VartotojoID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Vartotojai" Relationship="Self.TranzakcijosFK" FromRole="Tranzakcijos" ToRole="Vartotojai" />
+  </EntityType>
+  <EntityType Name="Vartotojai">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vardas" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pavarde" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tranzakcijos" Relationship="Self.TranzakcijosFK" FromRole="Vartotojai" ToRole="Tranzakcijos" />
+    <NavigationProperty Name="Balansas" Relationship="Self.BalansasFK" FromRole="Vartotojai" ToRole="Balansas" />
+    <NavigationProperty Name="Iplaukos" Relationship="Self.IplaukosFK" FromRole="Vartotojai" ToRole="Iplaukos" />
+    <NavigationProperty Name="Islaidos" Relationship="Self.IslaidosFK" FromRole="Vartotojai" ToRole="Islaidos" />
+  </EntityType>
+  <EntityType Name="Balansas">
+    <Key>
+      <PropertyRef Name="VartotojoID" />
+      <PropertyRef Name="Menesis" />
+      <PropertyRef Name="Suma" />
+    </Key>
+    <Property Name="VartotojoID" Type="Int32" Nullable="false" />
+    <Property Name="Menesis" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Suma" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Vartotojai" Relationship="Self.BalansasFK" FromRole="Balansas" ToRole="Vartotojai" />
+  </EntityType>
+  <EntityType Name="Iplaukos">
+    <Key>
+      <PropertyRef Name="VartotojoID" />
+      <PropertyRef Name="Menesis" />
+      <PropertyRef Name="Pavadinimas" />
+      <PropertyRef Name="Suma" />
+    </Key>
+    <Property Name="VartotojoID" Type="Int32" Nullable="false" />
+    <Property Name="Menesis" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pavadinimas" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Suma" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Vartotojai" Relationship="Self.IplaukosFK" FromRole="Iplaukos" ToRole="Vartotojai" />
+  </EntityType>
+  <EntityType Name="Islaidos">
+    <Key>
+      <PropertyRef Name="VartotojoID" />
+      <PropertyRef Name="Menesis" />
+      <PropertyRef Name="Pavadinimas" />
+      <PropertyRef Name="Suma" />
+    </Key>
+    <Property Name="VartotojoID" Type="Int32" Nullable="false" />
+    <Property Name="Menesis" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pavadinimas" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Suma" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Vartotojai" Relationship="Self.IslaidosFK" FromRole="Islaidos" ToRole="Vartotojai" />
+  </EntityType>
+  <Association Name="TranzakcijosFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Tranzakcijos" Type="Self.Tranzakcijos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tranzakcijos">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BalansasFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Balansas" Type="Self.Balansas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Balansas">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IplaukosFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Iplaukos" Type="Self.Iplaukos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Iplaukos">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IslaidosFK">
+    <End Role="Vartotojai" Type="Self.Vartotojai" Multiplicity="1" />
+    <End Role="Islaidos" Type="Self.Islaidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vartotojai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Islaidos">
+        <PropertyRef Name="VartotojoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BiudzetoDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tranzakcijos" EntityType="Self.Tranzakcijos" />
+    <EntitySet Name="Vartotojai" EntityType="Self.Vartotojai" />
+    <EntitySet Name="Balansas" EntityType="Self.Balansas" />
+    <EntitySet Name="Iplaukos" EntityType="Self.Iplaukos" />
+    <EntitySet Name="Islaidos" EntityType="Self.Islaidos" />
+    <AssociationSet Name="TranzakcijosFK" Association="Self.TranzakcijosFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Tranzakcijos" EntitySet="Tranzakcijos" />
+    </AssociationSet>
+    <AssociationSet Name="BalansasFK" Association="Self.BalansasFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Balansas" EntitySet="Balansas" />
+    </AssociationSet>
+    <AssociationSet Name="IplaukosFK" Association="Self.IplaukosFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Iplaukos" EntitySet="Iplaukos" />
+    </AssociationSet>
+    <AssociationSet Name="IslaidosFK" Association="Self.IslaidosFK">
+      <End Role="Vartotojai" EntitySet="Vartotojai" />
+      <End Role="Islaidos" EntitySet="Islaidos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
